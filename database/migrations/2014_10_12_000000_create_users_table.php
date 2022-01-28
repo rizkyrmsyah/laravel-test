@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->index();
             $table->string('password');
             $table->integer('credit')->nullable();
+            $table->string('type');
             $table->timestamps();
         });
     }
