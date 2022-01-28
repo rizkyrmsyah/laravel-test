@@ -16,5 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('register-owner', [OwnerController::class, 'register']);
-Route::post('register-user', [UserController::class, 'register']);
+Route::prefix('user')->group(function () {
+    Route::post('register', [UserController::class, 'register']);
+});
+
+Route::prefix('owner')->group(function () {
+    Route::post('register', [OwnerController::class, 'register']);
+});
+
+
