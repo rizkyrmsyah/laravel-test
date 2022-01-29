@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\RoleEnum;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterOwnerRequest;
+use App\Http\Resources\OwnerResource;
 use App\Libraries\Token;
 use App\Models\Owner;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class OwnerController extends Controller
     public function register(RegisterOwnerRequest $request)
     {
         Owner::create($request->validated());
-        return response()->json(['message' => 'Registrasi owner berhasil']);
+        return response()->json(['message' => 'Registrasi owner berhasil'], Response::HTTP_CREATED);
     }
 
     public function login(LoginRequest $request)
@@ -40,6 +41,6 @@ class OwnerController extends Controller
     public function showProfile(Request $request)
     {
         $data = Owner::find($request->session->id);
-        return response()->json(['message' => 'success', 'data' => $data]);
+        return new OwnerResource($data);
     }
 }

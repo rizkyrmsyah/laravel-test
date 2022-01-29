@@ -19,8 +19,8 @@ class CreatePropertiesTable extends Migration
             $table->string('name')->index();
             $table->string('location')->index();
             $table->double('price')->index();
-            $table->boolean('is_available');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::prefix('owner')->group(function () {
     Route::post('login', [OwnerController::class, 'login']);
     Route::get('show-profile', [OwnerController::class, 'showProfile'])->middleware('ownerMiddleware');
 });
+
+Route::resource('property', PropertyController::class);

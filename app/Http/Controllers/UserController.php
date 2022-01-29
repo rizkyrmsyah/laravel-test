@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\UserTypeEnum;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterUserRequest;
+use App\Http\Resources\UserResource;
 use App\Libraries\Token;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class UserController extends Controller
         }
 
         User::create($request->validated() + ['credit' => $credit]);
-        return response()->json(['message' => 'Registrasi user berhasil']);
+        return response()->json(['message' => 'Registrasi user berhasil'], Response::HTTP_CREATED);
     }
 
     public function login(LoginRequest $request)
@@ -45,6 +46,6 @@ class UserController extends Controller
     public function showProfile(Request $request)
     {
         $data = User::find($request->session->id);
-        return response()->json(['message' => 'success', 'data' => $data]);
+        return new UserResource($data);
     }
 }
