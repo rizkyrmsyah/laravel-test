@@ -17,7 +17,7 @@ class PropertyController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('ownerMiddleware')->except(['index', 'show']);
+        $this->middleware('ownerMiddleware')->except(['show']);
     }
 
     /**
@@ -27,7 +27,8 @@ class PropertyController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Property::search($request)
+        $query = Property::where('owner_id', $request->session->id)
+            ->search($request)
             ->order($request)
             ->paginate($request->input('per_page', 10));
 
@@ -64,9 +65,14 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PropertyRequest $request, Property $property)
     {
-        //
+        if ($property->owner_id != $request->session->id) {
+            return response()->json(['message' => 'Properti tidak ditemukan'], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $property->update($request->validated());
+        return response()->json(['message' => 'Ubah properti berhasil']);
     }
 
     /**

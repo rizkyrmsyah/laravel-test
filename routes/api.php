@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListPropertyController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserController;
@@ -29,3 +30,4 @@ Route::prefix('owner')->group(function () {
 });
 
 Route::resource('property', PropertyController::class);
+Route::get('list-property', ListPropertyController::class);
