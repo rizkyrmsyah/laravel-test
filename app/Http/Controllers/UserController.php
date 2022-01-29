@@ -34,7 +34,7 @@ class UserController extends Controller
         list($jwt, $expire) = Token::jwtEncode($user->id, 'user');
 
         return response()->json([
-            'message' => 'Login berhasil',
+            'message' => 'Login user berhasil',
             'data' => [
                 'access_token' => $jwt,
                 'expire_at' => $expire,

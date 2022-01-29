@@ -9,7 +9,7 @@ use Illuminate\Http\Response;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-class UserMiddleware
+class OwnerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -30,7 +30,7 @@ class UserMiddleware
             return response()->json(['message' => 'Invalid token environment'], Response::HTTP_UNAUTHORIZED);
         }
 
-        if ($token->data->role !== RoleEnum::user()->value) {
+        if ($token->data->role !== RoleEnum::owner()->value) {
             return response()->json(['message' => 'Unauthorize'], Response::HTTP_UNAUTHORIZED);
         }
 
