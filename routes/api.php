@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('user')->group(function () {
     Route::post('register', [UserController::class, 'register']);
+    Route::post('login', [UserController::class, 'login']);
+    Route::get('show-profile', [UserController::class, 'showProfile'])->middleware('userMiddleware');
 });
 
 Route::prefix('owner')->group(function () {
