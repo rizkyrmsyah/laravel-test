@@ -32,7 +32,7 @@ class UserTest extends TestCase
             'email' => $data['email'],
             'phone' => $data['phone'],
             'type' => UserTypeEnum::regular(),
-            'credit' => 20
+            'credit' => 20,
         ]);
     }
 
@@ -48,7 +48,7 @@ class UserTest extends TestCase
             'email' => $data['email'],
             'phone' => $data['phone'],
             'type' => UserTypeEnum::premium(),
-            'credit' => 40
+            'credit' => 40,
         ]);
     }
 
