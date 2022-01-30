@@ -11,6 +11,6 @@ class Chatroom extends Model
 
     protected $fillable = [
         'user_id',
-        'property_id'
+        'property_id',
     ];
 }
