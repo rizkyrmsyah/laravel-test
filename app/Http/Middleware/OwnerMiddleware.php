@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Enums\RoleEnum;
 use Closure;
+use Firebase\JWT\ExpiredException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Firebase\JWT\JWT;
@@ -25,7 +26,12 @@ class OwnerMiddleware
             return response()->json(['message' => 'Unauthorize'], Response::HTTP_UNAUTHORIZED);
         }
 
-        $token = JWT::decode($jwt, new Key(base64_encode(config('jwt.secret')), config('jwt.alg')));
+        try {
+            $token = JWT::decode($jwt, new Key(base64_encode(config('jwt.secret')), config('jwt.alg')));
+        } catch (ExpiredException $e) {
+            return response()->json(['message' => 'Expired token'], Response::HTTP_UNAUTHORIZED);
+        }
+
         if ($token->data->env !== config('app.env')) {
             return response()->json(['message' => 'Invalid token environment'], Response::HTTP_UNAUTHORIZED);
         }
