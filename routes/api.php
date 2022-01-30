@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AskAvailibilityController;
 use App\Http\Controllers\ListPropertyController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\PropertyController;
@@ -31,3 +32,4 @@ Route::prefix('owner')->group(function () {
 
 Route::resource('property', PropertyController::class);
 Route::get('list-property', ListPropertyController::class);
+Route::post('ask-availibility', AskAvailibilityController::class)->middleware('userMiddleware');

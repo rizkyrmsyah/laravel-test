@@ -17,6 +17,7 @@ class OwnerController extends Controller
     public function register(RegisterOwnerRequest $request)
     {
         Owner::create($request->validated());
+
         return response()->json(['message' => 'Registrasi owner berhasil'], Response::HTTP_CREATED);
     }
 
@@ -41,6 +42,7 @@ class OwnerController extends Controller
     public function showProfile(Request $request)
     {
         $data = Owner::find($request->session->id);
+
         return new OwnerResource($data);
     }
 }

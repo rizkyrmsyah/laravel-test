@@ -22,6 +22,7 @@ class UserController extends Controller
         }
 
         User::create($request->validated() + ['credit' => $credit]);
+
         return response()->json(['message' => 'Registrasi user berhasil'], Response::HTTP_CREATED);
     }
 
@@ -46,6 +47,7 @@ class UserController extends Controller
     public function showProfile(Request $request)
     {
         $data = User::find($request->session->id);
+
         return new UserResource($data);
     }
 }

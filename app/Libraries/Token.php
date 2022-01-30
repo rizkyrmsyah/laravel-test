@@ -12,22 +12,20 @@ class Token
         $notBefore = $issuedAt + config('jwt.nbf');
         $expire    = $notBefore + config('jwt.exp');
 
-        $token = array(
+        $token = [
             "jti"  => $tokenId,
             "iss"  => config('jwt.iss'),
             "iat"  => $issuedAt,
             "nbf"  => $notBefore,
             'exp'  => $expire,
-            'data' => [ // Data related to the signer user
+            'data' => [
                 'id'   => $id,
                 'env' => config('app.env'),
                 'role' => $role,
             ],
-        );
+        ];
         JWT::$leeway = 5;
         $jwt = JWT::encode($token, $key, config('jwt.alg'));
-        return array($jwt, $expire);
+        return [$jwt, $expire];
     }
-
 }
-?>
