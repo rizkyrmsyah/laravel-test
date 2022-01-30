@@ -30,6 +30,9 @@ class AskAvailabilityTest extends TestCase
         $accessToken = json_decode($user->getContent(), true)['data']['access_token'];
         $response = $this->withHeaders(['Authorization' => 'Bearer ' . $accessToken])->post('/api/ask-availibility', $dataAsk);
         $response->assertStatus(Response::HTTP_CREATED);
+        $this->assertDatabaseHas('users', [
+            'credit' => $userData->credit - 5,
+        ]);
         $this->assertDatabaseHas('chatrooms', [
             'user_id' => $userData->id,
             'property_id' => $dataAsk['property_id'],
