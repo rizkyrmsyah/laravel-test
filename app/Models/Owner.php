@@ -27,6 +27,6 @@ class Owner extends Model
 
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password']  = bcrypt($value);
+        $this->attributes['password'] = bcrypt($value);
     }
 }

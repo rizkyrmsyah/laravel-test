@@ -50,7 +50,7 @@ class PropertyTest extends TestCase
         $data = [
             'name' => 'test aja',
             'location' => 'jakarta utara',
-            'price' => 500000
+            'price' => 500000,
         ];
 
         $response = $this->withHeaders(['Authorization' => 'Bearer ' . $this->accessToken])->post('/api/property', $data);
@@ -68,7 +68,7 @@ class PropertyTest extends TestCase
         $data = [
             'name' => 'test aja',
             'location' => 'jakarta utara',
-            'price' => 500000
+            'price' => 500000,
         ];
 
         $response = $this->withHeaders(['Authorization' => 'Bearer ' . $this->accessToken])->patch("/api/property/$property->id", $data);

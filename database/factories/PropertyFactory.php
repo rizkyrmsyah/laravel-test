@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Owner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PropertyFactory extends Factory
@@ -22,5 +21,3 @@ class PropertyFactory extends Factory
         ];
     }
 }
-
-
