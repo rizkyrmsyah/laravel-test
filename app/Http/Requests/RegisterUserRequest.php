@@ -28,7 +28,7 @@ class RegisterUserRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'phone' => 'required|numeric|unique:users,phone',
+            'phone' => 'required|numeric|unique:users,phone|digits_between:10,16',
             'password' => 'required|confirmed|min:6',
             'type' => ['required', new EnumRule(UserTypeEnum::class)],
         ];

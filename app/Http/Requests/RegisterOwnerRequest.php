@@ -26,7 +26,7 @@ class RegisterOwnerRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|email|unique:owners,email',
-            'phone' => 'required|numeric|unique:owners,phone',
+            'phone' => 'required|numeric|unique:owners,phone|digits_between:10,16',
             'password' => 'required|confirmed|min:6',
         ];
     }
