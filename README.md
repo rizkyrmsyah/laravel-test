@@ -30,6 +30,12 @@ php artisan migrate
 php artisan serve
 ```
 
+## Running Unit Test
+Command promt / terminal in root directory of project, then type
+```bash
+vendor/bin/phpunit
+```
+
 ## Usage
 
 1. Import postman collection file in this project root directory to your local postman collection
