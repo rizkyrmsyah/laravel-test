@@ -1,0 +1,704 @@
+{
+	"info": {
+		"_postman_id": "b73dd063-13eb-4cfe-8c78-48c082ded359",
+		"name": "Mamikost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Owner",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "owner3",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "rizkyrmsyah@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "123123123123",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/owner/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"owner",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "123123123123",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/owner/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"owner",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Authenticated Owner",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMVpqTXhNMk5sTmpNeSIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNTA4NDk5LCJuYmYiOjE2NDM1MDg0OTksImV4cCI6MTY0MzUxMjA5OSwiZGF0YSI6eyJpZCI6MiwiZW52IjoibG9jYWwiLCJyb2xlIjoib3duZXIifX0.FmMSdRX5kJFc4k54EBVhUzpYnTjoAgCDwIMc22QgAjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/owner/show-profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"owner",
+								"show-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "user045",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "rizkyrmsyah@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0812213312212",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "regular",
+									"description": "regular, premium",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/user/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "0880123123123",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Authenticated User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMFptRXdZakl5WkdRMyIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNDQ0NzQ3LCJuYmYiOjE2NDM0NDQ3NDcsImV4cCI6MTY0MzQ0ODM0NywiZGF0YSI6eyJpZCI6MSwiZW52IjoibG9jYWwiLCJyb2xlIjoidXNlciJ9fQ.MvO6ysB1qdcd81KEy7w7paX9pM2defSM3KNK5hjmNm4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/user/show-profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"show-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Property",
+			"item": [
+				{
+					"name": "Owner List property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMVpqTXhNMk5sTmpNeSIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNTA4NDk5LCJuYmYiOjE2NDM1MDg0OTksImV4cCI6MTY0MzUxMjA5OSwiZGF0YSI6eyJpZCI6MiwiZW52IjoibG9jYWwiLCJyb2xlIjoib3duZXIifX0.FmMSdRX5kJFc4k54EBVhUzpYnTjoAgCDwIMc22QgAjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/property",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"property"
+							],
+							"query": [
+								{
+									"key": "search_by",
+									"value": "location",
+									"description": "name, price, location",
+									"disabled": true
+								},
+								{
+									"key": "search_query",
+									"value": "jakarta",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "price",
+									"description": "price",
+									"disabled": true
+								},
+								{
+									"key": "order_direction",
+									"value": "desc",
+									"description": "asc, desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMFptVTJOakV5TW1JeSIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNDQ1ODYyLCJuYmYiOjE2NDM0NDU4NjIsImV4cCI6MTY0MzQ0OTQ2MiwiZGF0YSI6eyJpZCI6MSwiZW52IjoibG9jYWwiLCJyb2xlIjoib3duZXIifX0.U8IUsnXro5ffP46RKFbkl5wF-doc1LD6KKgCD5eUZzQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/list-property",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"list-property"
+							],
+							"query": [
+								{
+									"key": "search_by",
+									"value": "location",
+									"description": "name, price, location",
+									"disabled": true
+								},
+								{
+									"key": "search_query",
+									"value": "jakarta",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "price",
+									"description": "price",
+									"disabled": true
+								},
+								{
+									"key": "order_direction",
+									"value": "desc",
+									"description": "asc, desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMFptRXpOalpoTW1FMSIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNDQ0NzkwLCJuYmYiOjE2NDM0NDQ3OTAsImV4cCI6MTY0MzQ0ODM5MCwiZGF0YSI6eyJpZCI6MiwiZW52IjoibG9jYWwiLCJyb2xlIjoib3duZXIifX0.d1ekNkLr1Ual6eUMv50JXfUAsf4kXUj5L12fd5c1dBw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/property/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"property",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMFptVTJOakV5TW1JeSIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNDQ1ODYyLCJuYmYiOjE2NDM0NDU4NjIsImV4cCI6MTY0MzQ0OTQ2MiwiZGF0YSI6eyJpZCI6MSwiZW52IjoibG9jYWwiLCJyb2xlIjoib3duZXIifX0.U8IUsnXro5ffP46RKFbkl5wF-doc1LD6KKgCD5eUZzQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/property/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"property",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMVpqTXhNMk5sTmpNeSIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNTA4NDk5LCJuYmYiOjE2NDM1MDg0OTksImV4cCI6MTY0MzUxMjA5OSwiZGF0YSI6eyJpZCI6MiwiZW52IjoibG9jYWwiLCJyb2xlIjoib3duZXIifX0.FmMSdRX5kJFc4k54EBVhUzpYnTjoAgCDwIMc22QgAjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "kosan 234234",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Jember 23423",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "25888",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/property",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"property"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMVpqTXhNMk5sTmpNeSIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNTA4NDk5LCJuYmYiOjE2NDM1MDg0OTksImV4cCI6MTY0MzUxMjA5OSwiZGF0YSI6eyJpZCI6MiwiZW52IjoibG9jYWwiLCJyb2xlIjoib3duZXIifX0.FmMSdRX5kJFc4k54EBVhUzpYnTjoAgCDwIMc22QgAjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "edit haha",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "34534",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1500000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/property/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"property",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ask availibility",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJNekkyTVdZMVpUbGtNVFJsTnpWbCIsImlzcyI6Im1hbWlrb3N0IiwiaWF0IjoxNjQzNTA2MTI5LCJuYmYiOjE2NDM1MDYxMjksImV4cCI6MTY0MzUwOTcyOSwiZGF0YSI6eyJpZCI6MSwiZW52IjoibG9jYWwiLCJyb2xlIjoidXNlciJ9fQ.661xDTcnI5r9PiATVN5Uy3MpjvCvoXi_i6ZUxI4pA_4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "property_id",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/ask-availibility",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"ask-availibility"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

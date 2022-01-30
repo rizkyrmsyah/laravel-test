@@ -32,3 +32,5 @@ php artisan serve
 
 ## Usage
 
+1. Import postman collection file in this project root directory to your local postman collection
+2. If import finished, enjoy the API
