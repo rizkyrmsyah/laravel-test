@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('recharge:credit')->monthly()->description('Recharge user credit on every start of the month');
     }
 
     /**
