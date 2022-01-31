@@ -21,13 +21,10 @@ cp .env.example .env
 ```
 
 - Set the database connection and JWT config in `.env`
+- Set `MAIN_API_URL` for dashboard api endpoint call (here we use http://127.0.0.1:8000)
 - Migrating database by typing 
 ```bash
 php artisan migrate
-```
-- run the project in local environment by typing
-```bash
-php artisan serve
 ```
 
 ## Running Unit Test
@@ -39,4 +36,12 @@ vendor/bin/phpunit
 ## Usage
 
 1. Import postman collection file in this project root directory to your local postman collection
-2. If import finished, enjoy the API
+2. Run the API in local environment by typing
+```bash
+php artisan serve
+```
+3. For running dashboard API MUST RUNNING FIRST ! and dashboard must run in different port from API. here we use port 8001 for running the dashboard by typing
+
+```bash
+php artisan serve --port=8001
+```
